@@ -5,16 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // sign out
-  Future signOut() async {
-    try {
-      return await _auth.signOut();
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
-  }
-
+  
   //Create user object based on firebase user
   MyUser? _userFromFirebaseUser(User user) {
     return user != null ? MyUser(uid: user.uid) : null;
@@ -68,3 +59,14 @@ class AuthService {
     }
   }
 }
+
+// sign out
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
